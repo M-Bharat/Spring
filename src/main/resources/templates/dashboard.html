@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <script>
+        window.onbeforeunload = function() {
+            // This function will run when the user closes the tab or window
+            navigator.sendBeacon('/logout'); // Sends a request to logout endpoint
+        };
+    </script>
+</head>
+<body>
+    <h2>Welcome to Dashboard</h2>
+    <p>You are logged in.</p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+</body>
+</html>
